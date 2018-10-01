@@ -11,7 +11,7 @@ int my_strlen(char * s) {
   return sum;
 }
 
-char *my_strncopy( char *dest, char *source, int n) {
+char *my_strncpy( char *dest, char *source, int n) {
 	for (int i = 0; i < n; i++) {
 		*(dest + i) = *(source + i);
 	}
@@ -19,7 +19,7 @@ char *my_strncopy( char *dest, char *source, int n) {
 }
 
 char *my_strcpy( char *dest, char *source ) {
-	return my_strncopy(dest, source, sizeof(source) );
+	return my_strncpy(dest, source, sizeof(source) );
 }
 
 char * my_strncat( char *dest, char *source, int n) {
@@ -36,7 +36,7 @@ char * my_strncat( char *dest, char *source, int n) {
   return start;
 }
 
-int my_strncomp( char *s1, char *s2, int n) {
+int my_strncmp( char *s1, char *s2, int n) {
 	for (int i = 0; i < n && i < sizeof(s1) && i < sizeof(s2); i++ ) {
 		if ( *(s1 + i) < *(s2 + i) ) {
 			return *(s1 + i) - *(s2 + i);
@@ -48,7 +48,7 @@ int my_strncomp( char *s1, char *s2, int n) {
 	return 0;
 }
 
-int my_strcomp( char *s1, char *s2) {
+int my_strcmp( char *s1, char *s2) {
 	int min = 0;
 	if ( sizeof(s1) < sizeof(s2) ) {
 		min = sizeof(s1);
@@ -56,7 +56,7 @@ int my_strcomp( char *s1, char *s2) {
 	else {
 		min = sizeof(s2);
 	}
-	return my_strncomp( s1, s2, min );
+	return my_strncmp( s1, s2, min );
 }
 
 char *my_strchr(char *s, char c) {
