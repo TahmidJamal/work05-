@@ -3,7 +3,6 @@
 #include "work5.h"
 
 char *my_strncopy( char *dest, char *source, int n) {
-	//if n is larger than destination size 
 	for (int i = 0; i < n; i++) {
 		*(dest + i) = *(source + i);
 	}
